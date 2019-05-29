@@ -3,6 +3,7 @@
 {% block title %}Stock{% endblock %}
 
 {% block body %}
+<body>
     <h1>STOCK EN BOUTIQUE</h1>
 
         <table>
@@ -11,8 +12,12 @@
 
             <tr><td><b>Categorie:</b></td> <td>{{ catego }}</td></tr>
             <tr><td><b>Stock:</b></td><td> {{ s.s }}</td></tr>
-                    <tr><td>
-                            <br><a href="{{ path('read_produit') }}" class="btn btn-warning">OK</a> <button id="btnDetail" class="btn btn-success">Detaille</button></td></tr>
+                    <tr>
+                        <td>
+                            <br><a href="{{ path('read_produit') }}" class="btn btn-warning">OK</a>
+                            <button id="btnDetail" class="btn btn-success">Detaille</button>
+                        </td>
+                    </tr>
 
         {% else %}
             <tr>
@@ -49,4 +54,13 @@
         </table>
     </div>
 
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnDetail').click(function () {
+                $('#detaille').toggle('fast');
+            });
+        });
+    </script>
+</body>
 {% endblock %}
